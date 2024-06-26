@@ -14,6 +14,18 @@ public class DashboardObject {
         return By.xpath("//*[contains(text(), 'Dashboard')]");
     }
 
+    public By getEditBtn(){
+        return By.xpath("/html/body/div[1]/div/div/div/div/div[1]/main/div/section/div[2]/div[3]/div/div/div[1]/table/tbody/tr[1]/td[4]/div/button[1]");
+    }
+
+    public By getDeleteBtn(){
+        return By.xpath("/html/body/div[1]/div/div/div/div/div[1]/main/div/section/div[2]/div[3]/div/div/div[1]/table/tbody/tr[1]/td[4]/div/button[2]");
+    }
+
+    public By getConfirmBtn(){
+        return By.xpath("/html/body/div[2]/div[2]/div[2]/div/div[3]/button[1]");
+    }
+
     // FAQ
     public By getTextFaq() {
         return By.xpath("//*[contains(text(), 'Frequently Asked Question')]");
