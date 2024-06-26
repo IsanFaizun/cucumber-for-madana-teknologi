@@ -43,6 +43,7 @@ public class CategorySteps {
 
     @And("Admin fill the column with {string}")
     public void admin_fill_the_column(String namaKategori) throws InterruptedException {
+        test.info("Admin fill the column 'Nama Kategori' with '" + namaKategori + "'");
         WebElement activeElement = driver.switchTo().activeElement();
         activeElement.sendKeys(Keys.TAB);
         categoryPage.enterInputNamaKategori(namaKategori);
@@ -61,21 +62,25 @@ public class CategorySteps {
 
     @When("Admin click edit button on one of existing category")
     public void admin_click_edit_button_on_one_of_existing_category() throws InterruptedException {
+        test.info("Admin click Edit button on one of existing category");
         categoryPage.clickEditKategori();
     }
 
     @When("Admin click delete button on one of existing category")
     public void admin_click_delete_button_on_one_of_existing_category() throws InterruptedException {
+        test.info("Admin click Delete button on one of existing category");
         categoryPage.clickDeleteKategori();
     }
 
     @And("Delete confirmation appears")
     public void delete_confirmation_appears() throws InterruptedException {
+        test.info("Delete confirmation appears");
         categoryPage.getDeleteConfirmation();
     }
 
     @Then("Admin click Hapus button")
     public void admin_click_hapus_button() throws InterruptedException {
+        test.info("Admin click Hapus button");
         categoryPage.clickBtnConfirmDelete();
     }
 }

@@ -8,8 +8,7 @@ public class ExtentReportManager {
     private static ExtentSparkReporter sparkReporter;
     public static ExtentReports getInstance() {
         if (extent == null) {
-            String reportPath = System.getProperty("user.dir") +
-                    "/test-output/ExtentReport.html";
+            String reportPath = System.getProperty("user.dir") + "/test-output/ExtentReport.html";
             sparkReporter = new ExtentSparkReporter(reportPath);
             sparkReporter.config().setDocumentTitle("Automation Test Report");
             sparkReporter.config().setReportName("Automation Test Results");
