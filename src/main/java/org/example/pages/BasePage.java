@@ -1,6 +1,7 @@
 package org.example.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,6 +30,11 @@ public class BasePage {
     }
     public void inputText(By by, String text) throws InterruptedException {
         waitForElementVisible(by).sendKeys(text);
+    }
+    public void tabToModal() {
+        WebElement body = driver.findElement(By.tagName("body"));
+        body.sendKeys(Keys.TAB);
+        body.sendKeys(Keys.TAB);
     }
 
 }
