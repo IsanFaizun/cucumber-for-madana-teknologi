@@ -15,7 +15,7 @@ public class FaqSteps {
         this.dashboardPage = new DashboardPage(driver);
     }
 
-    @Then("User click FAQ button")
+    @Then("User click faq button")
     public void user_click_faq_button() throws InterruptedException {
         dashboardPage.clickFaq();
         dashboardPage.getTextFaq();
@@ -28,10 +28,12 @@ public class FaqSteps {
         dashboardPage.clickAddFaq();
     }
 
-    @Then("User fill all column")
-    public void user_fill_all_column() throws InterruptedException {
-        dashboardPage.enterQuestion("pertanyaan");
-        dashboardPage.enterAnswer("jawaban");
+    @Then("User fill the column")
+    public void user_fill_the_column() throws InterruptedException{
+        dashboardPage.clickQuestion();
+        dashboardPage.enterQuestion("the question");
+        dashboardPage.clickAnswer();
+        dashboardPage.enterAnswer("the answer");
     }
 
     @Then("User click save")

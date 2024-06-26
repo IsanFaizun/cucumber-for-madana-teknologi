@@ -2,6 +2,7 @@ package org.example.pages;
 
 import org.example.objects.DashboardObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class DashboardPage {
@@ -11,10 +12,11 @@ public class DashboardPage {
     By textDashboard;
     // faq
     By textFaq;
+    By modalFaq;
     By faqButton;
     By addFaq;
-    By questionFaq;
-    By answerFaq;
+    By questionInput;
+    By answerInput;
     By saveFaq;
 
     public DashboardPage(WebDriver driver) {
@@ -24,10 +26,11 @@ public class DashboardPage {
         textDashboard = homeObject.getTextDashboard();
         // faq
         textFaq = homeObject.getTextFaq();
+        modalFaq = homeObject.getModalFaq();
         faqButton = homeObject.getFaq();
         addFaq = homeObject.getAddFaq();
-        questionFaq = homeObject.getInputQuestion();
-        answerFaq = homeObject.getInputAnswer();
+        questionInput = homeObject.getInputQuestion();
+        answerInput = homeObject.getInputAnswer();
         saveFaq = homeObject.getSaveFaq();
     }
 
@@ -51,12 +54,24 @@ public class DashboardPage {
         basePage.click(addFaq);
     }
 
+//    public void getModalFaq() throws InterruptedException {
+//        basePage.verifyElementVisible(modalFaq);
+//    }
+
+    public void clickQuestion() throws InterruptedException{
+        basePage.click(questionInput);
+    }
+
     public void enterQuestion(String question) throws InterruptedException{
-        basePage.inputText(questionFaq, question);
+        basePage.inputText(questionInput, question);
+    }
+
+    public void clickAnswer() throws InterruptedException{
+        basePage.click(answerInput);
     }
 
     public void enterAnswer(String answer) throws InterruptedException{
-        basePage.inputText(questionFaq, answer);
+        basePage.inputText(answerInput, answer);
     }
 
     public void clickSaveFaq() throws InterruptedException{

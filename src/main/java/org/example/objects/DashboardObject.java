@@ -19,6 +19,10 @@ public class DashboardObject {
         return By.xpath("//*[contains(text(), 'Frequently Asked Question')]");
     }
 
+    public By getModalFaq() {
+        return By.xpath("//*[contains(text(), 'Tambah Faq')]");
+    }
+
     public By getFaq(){
         return By.xpath("/html/body/div[1]/div/div/div/div/aside/aside/ul/li[6]/a");
     }
@@ -28,11 +32,11 @@ public class DashboardObject {
     }
 
     public By getInputQuestion(){
-        return By.id("input-25");
+        return By.xpath("/html/body/div[2]/div[2]/div[2]/div/div[3]/form/div/div[1]/div/div/div/div[3]/input");
     }
 
     public By getInputAnswer(){
-        return By.id("input-28");
+        return By.xpath("/html/body/div[2]/div[2]/div[2]/div/div[3]/form/div/div[2]/div/div/div/div[3]/textarea");
     }
 
     public By getSaveFaq(){
