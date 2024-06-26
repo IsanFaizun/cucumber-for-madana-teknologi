@@ -11,6 +11,9 @@ public class DashboardPage {
     BasePage basePage;
     DashboardObject homeObject;
     By textDashboard;
+    By editBtn;
+    By deleteBtn;
+    By confirmBtn;
     // faq
     By textFaq;
     By faqButton;
@@ -26,6 +29,9 @@ public class DashboardPage {
         basePage = new BasePage(driver);
         homeObject = new DashboardObject(driver);
         textDashboard = homeObject.getTextDashboard();
+        editBtn = homeObject.getEditBtn();
+        deleteBtn = homeObject.getDeleteBtn();
+        confirmBtn = homeObject.getConfirmBtn();
         // faq
         textFaq = homeObject.getTextFaq();
         faqButton = homeObject.getFaq();
@@ -46,6 +52,18 @@ public class DashboardPage {
         return driver.getCurrentUrl();
     }
 
+    public void clickEditBtn() throws InterruptedException{
+        basePage.click(editBtn);
+    }
+
+    public void clickDeleteBtn() throws InterruptedException {
+        basePage.click(deleteBtn);
+    }
+
+    public void clickConfirmBtn() throws InterruptedException {
+        basePage.click(confirmBtn);
+    }
+
     // FAQ
     public void getTextFaq() throws InterruptedException {
         basePage.verifyElementVisible(textFaq);
@@ -64,8 +82,20 @@ public class DashboardPage {
         activeElement.sendKeys(Keys.TAB);
     }
 
+    private void editColumn() {
+        WebElement activeElement = driver.switchTo().activeElement();
+        activeElement.sendKeys(Keys.CONTROL, "a");
+        activeElement.sendKeys(Keys.BACK_SPACE);
+    }
+
     public void enterQuestion(String question) throws InterruptedException{
         pressTabKey();
+        basePage.inputText(questionInput, question);
+    }
+
+    public void editQuestion(String question) throws InterruptedException{
+        pressTabKey();
+        editColumn();
         basePage.inputText(questionInput, question);
     }
 

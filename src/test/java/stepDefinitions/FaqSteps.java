@@ -39,6 +39,13 @@ public class FaqSteps {
         dashboardPage.enterAnswer("the answer");
     }
 
+    @Then("User edit on question column")
+    public void user_edit_on_question_column() throws InterruptedException{
+        WebElement activeElement = driver.switchTo().activeElement();
+        activeElement.sendKeys(Keys.TAB);
+        dashboardPage.editQuestion("edit question");
+    }
+
     @Then("User click save")
     public void user_click_save() throws InterruptedException {
         dashboardPage.clickSaveFaq();
