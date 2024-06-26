@@ -9,12 +9,26 @@ public class DashboardPage {
     BasePage basePage;
     DashboardObject homeObject;
     By textDashboard;
+    // faq
+    By textFaq;
+    By faqButton;
+    By addFaq;
+    By questionFaq;
+    By answerFaq;
+    By saveFaq;
 
     public DashboardPage(WebDriver driver) {
         this.driver = driver;
         basePage = new BasePage(driver);
         homeObject = new DashboardObject(driver);
         textDashboard = homeObject.getTextDashboard();
+        // faq
+        textFaq = homeObject.getTextFaq();
+        faqButton = homeObject.getFaq();
+        addFaq = homeObject.getAddFaq();
+        questionFaq = homeObject.getInputQuestion();
+        answerFaq = homeObject.getInputAnswer();
+        saveFaq = homeObject.getSaveFaq();
     }
 
     public void getTextDashboard() throws InterruptedException {
@@ -22,5 +36,30 @@ public class DashboardPage {
     }
     public String getActualUrl() {
         return driver.getCurrentUrl();
+    }
+
+    // FAQ
+    public void getTextFaq() throws InterruptedException {
+        basePage.verifyElementVisible(textFaq);
+    }
+
+    public void clickFaq() throws InterruptedException{
+        basePage.click(faqButton);
+    }
+
+    public void clickAddFaq() throws InterruptedException{
+        basePage.click(addFaq);
+    }
+
+    public void enterQuestion(String question) throws InterruptedException{
+        basePage.inputText(questionFaq, question);
+    }
+
+    public void enterAnswer(String answer) throws InterruptedException{
+        basePage.inputText(questionFaq, answer);
+    }
+
+    public void clickSaveFaq() throws InterruptedException{
+        basePage.click(saveFaq);
     }
 }
