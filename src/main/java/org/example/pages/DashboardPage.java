@@ -18,6 +18,8 @@ public class DashboardPage {
     By questionInput;
     By answerInput;
     By saveFaq;
+    By userProfile;
+    By buttonLogout;
 
     public DashboardPage(WebDriver driver) {
         this.driver = driver;
@@ -31,6 +33,10 @@ public class DashboardPage {
         questionInput = homeObject.getInputQuestion();
         answerInput = homeObject.getInputAnswer();
         saveFaq = homeObject.getSaveFaq();
+
+        // Logout
+        userProfile = homeObject.getUserProfile();
+        buttonLogout = homeObject.getButtonLogout();
     }
 
     public void getTextDashboard() throws InterruptedException {
@@ -70,5 +76,10 @@ public class DashboardPage {
 
     public void clickSaveFaq() throws InterruptedException{
         basePage.click(saveFaq);
+    }
+
+    public void logout() throws InterruptedException {
+        basePage.click(userProfile);
+        basePage.waitForElementVisible(buttonLogout).click();
     }
 }
