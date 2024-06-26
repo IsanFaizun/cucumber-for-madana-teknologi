@@ -30,9 +30,10 @@ public class CategorySteps {
     }
 
     @Given("Admin on the categories management page")
-    public void admin_on_the_categories_management_page() {
+    public void admin_on_the_categories_management_page() throws InterruptedException {
         test.info("Admin on the categories management page");
-        driver.get("http://127.0.0.1:8000/dashboard/projects/categories");
+//        driver.get("http://127.0.0.1:8000/dashboard/projects/categories");
+        dashboardPage.navigateToKategoriProyek();
     }
     @When("Admin click on the Tambah Kategori button")
     public void admin_click_on_the_tambah_kategori_button() throws InterruptedException {

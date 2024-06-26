@@ -23,6 +23,8 @@ public class DashboardPage {
     By saveFaq;
     By userProfile;
     By buttonLogout;
+    By listProyekNav;
+    By kategoriNav;
 
     public DashboardPage(WebDriver driver) {
         this.driver = driver;
@@ -39,6 +41,10 @@ public class DashboardPage {
         questionInput = homeObject.getInputQuestion();
         answerInput = homeObject.getInputAnswer();
         saveFaq = homeObject.getSaveFaq();
+
+        // list proyek & child navigation
+        listProyekNav = homeObject.getListProyekNavigation();
+        kategoriNav = homeObject.getKategoriNavigation();
 
         // Logout
         userProfile = homeObject.getUserProfile();
@@ -111,5 +117,9 @@ public class DashboardPage {
     public void logout() throws InterruptedException {
         basePage.click(userProfile);
         basePage.waitForElementVisible(buttonLogout).click();
+    }
+    public void navigateToKategoriProyek() throws InterruptedException {
+        basePage.click(listProyekNav);
+        basePage.waitForElementVisible(kategoriNav).click();
     }
 }

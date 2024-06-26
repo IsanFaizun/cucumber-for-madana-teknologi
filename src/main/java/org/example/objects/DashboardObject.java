@@ -56,4 +56,10 @@ public class DashboardObject {
     public By getButtonLogout() {
         return By.xpath("/html/body/div[2]/div[2]/div/div/div[2]/div[2]/div");
     }
+    public By getListProyekNavigation() {
+        return By.xpath("//*[@id=\"app\"]/div/div/div/div/aside/aside/ul/li[3]/div");
+    }
+    public By getKategoriNavigation() {
+        return By.xpath("//*[@id=\"app\"]/div/div/div/div/aside/aside/ul/li[3]/ul/li[2]/a");
+    }
 }
