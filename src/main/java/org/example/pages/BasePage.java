@@ -34,7 +34,6 @@ public class BasePage {
     public void tabToModal() {
         WebElement body = driver.findElement(By.tagName("body"));
         body.sendKeys(Keys.TAB);
-        body.sendKeys(Keys.TAB);
     }
 
 }

@@ -7,13 +7,18 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.pages.BasePage;
 import org.example.pages.CategoryPage;
+import org.example.pages.DashboardPage;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CategorySteps {
     WebDriver driver;
     CategoryPage categoryPage;
+    DashboardPage dashboardPage;
     BasePage basePage;
     ExtentTest test= Hooks.test;
 
@@ -21,6 +26,7 @@ public class CategorySteps {
         this.driver = Hooks.getDriver();
         this.categoryPage = new CategoryPage(driver);
         this.basePage = new BasePage(driver);
+        this.dashboardPage = new DashboardPage(driver);
     }
 
     @Given("Admin on the categories management page")
@@ -34,16 +40,42 @@ public class CategorySteps {
         categoryPage.clickTambahKategori();
         categoryPage.getModal();
     }
-    @And("Admin fill the column")
-    public void admin_fill_the_column() throws InterruptedException {
-        test.info("Admin fill the column");
+
+    @And("Admin fill the column with {string}")
+    public void admin_fill_the_column(String namaKategori) throws InterruptedException {
         WebElement activeElement = driver.switchTo().activeElement();
         activeElement.sendKeys(Keys.TAB);
-        categoryPage.enterInputNamaKategori("Dummy Mobile");
+        categoryPage.enterInputNamaKategori(namaKategori);
     }
     @Then("Admin click Simpan button")
     public void admin_click_simpan_button() throws InterruptedException {
         test.info("Admin click Simpan button");
         categoryPage.clickBtnSimpan();
+    }
+
+    @And("Admin logout")
+    public void admin_logout() throws InterruptedException {
+        new WebDriverWait(driver, Duration.ofSeconds(5));
+        dashboardPage.logout();
+    }
+
+    @When("Admin click edit button on one of existing category")
+    public void admin_click_edit_button_on_one_of_existing_category() throws InterruptedException {
+        categoryPage.clickEditKategori();
+    }
+
+    @When("Admin click delete button on one of existing category")
+    public void admin_click_delete_button_on_one_of_existing_category() throws InterruptedException {
+        categoryPage.clickDeleteKategori();
+    }
+
+    @And("Delete confirmation appears")
+    public void delete_confirmation_appears() throws InterruptedException {
+        categoryPage.getDeleteConfirmation();
+    }
+
+    @Then("Admin click Hapus button")
+    public void admin_click_hapus_button() throws InterruptedException {
+        categoryPage.clickBtnConfirmDelete();
     }
 }

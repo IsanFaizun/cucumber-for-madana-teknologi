@@ -50,4 +50,10 @@ public class DashboardObject {
     public By getSaveFaq(){
         return By.xpath("/html/body/div[2]/div[2]/div[2]/div/div[3]/form/div/div[3]/button[1]");
     }
+    public By getUserProfile() {
+        return By.xpath("//*[@id=\"app\"]/div/div/div/div/div[1]/header/div/div/div[2]/div/div/div/img");
+    }
+    public By getButtonLogout() {
+        return By.xpath("/html/body/div[2]/div[2]/div/div/div[2]/div[2]/div");
+    }
 }

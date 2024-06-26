@@ -13,6 +13,10 @@ public class CategoryPage {
     By modal;
     By inputNamaKategori;
     By btnSimpan;
+    By btnEdit;
+    By btnDelete;
+    By deleteConfirmation;
+    By btnConfirmDelete;
 
     public CategoryPage(WebDriver driver) {
         this.driver = driver;
@@ -23,6 +27,10 @@ public class CategoryPage {
         modal = categoryObject.getModal();
         inputNamaKategori = categoryObject.getInputNamaKategori();
         btnSimpan = categoryObject.getButtonSimpan();
+        btnEdit = categoryObject.getButtonEdit();
+        btnDelete = categoryObject.getButtonDelete();
+        deleteConfirmation = categoryObject.getDeleteConfirmation();
+        btnConfirmDelete = categoryObject.getButtonConfirmDelete();
     }
 
     public void getTextKategori() throws InterruptedException {
@@ -40,6 +48,18 @@ public class CategoryPage {
     }
     public void clickBtnSimpan() throws InterruptedException {
         basePage.click(btnSimpan);
+    }
+    public void clickEditKategori() throws InterruptedException {
+        basePage.click(btnEdit);
+    }
+    public void clickDeleteKategori() throws InterruptedException {
+        basePage.click(btnDelete);
+    }
+    public void getDeleteConfirmation() throws InterruptedException {
+        basePage.verifyElementVisible(deleteConfirmation);
+    }
+    public void clickBtnConfirmDelete() throws InterruptedException {
+        basePage.click(btnConfirmDelete);
     }
 
 }
