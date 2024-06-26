@@ -19,10 +19,6 @@ public class DashboardObject {
         return By.xpath("//*[contains(text(), 'Frequently Asked Question')]");
     }
 
-    public By getModalFaq() {
-        return By.xpath("//*[contains(text(), 'Tambah Faq')]");
-    }
-
     public By getFaq(){
         return By.xpath("/html/body/div[1]/div/div/div/div/aside/aside/ul/li[6]/a");
     }

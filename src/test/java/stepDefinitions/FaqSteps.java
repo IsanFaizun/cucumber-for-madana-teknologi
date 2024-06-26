@@ -2,7 +2,9 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import org.example.pages.DashboardPage;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,13 +28,14 @@ public class FaqSteps {
     @Then("User click add button")
     public void user_click_add_button() throws InterruptedException {
         dashboardPage.clickAddFaq();
+        Thread.sleep(500);
     }
 
     @Then("User fill the column")
     public void user_fill_the_column() throws InterruptedException{
-        dashboardPage.clickQuestion();
+        WebElement activeElement = driver.switchTo().activeElement();
+        activeElement.sendKeys(Keys.TAB);
         dashboardPage.enterQuestion("the question");
-        dashboardPage.clickAnswer();
         dashboardPage.enterAnswer("the answer");
     }
 

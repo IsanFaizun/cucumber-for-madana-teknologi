@@ -4,6 +4,7 @@ import org.example.objects.DashboardObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class DashboardPage {
     WebDriver driver;
@@ -12,7 +13,6 @@ public class DashboardPage {
     By textDashboard;
     // faq
     By textFaq;
-    By modalFaq;
     By faqButton;
     By addFaq;
     By questionInput;
@@ -26,7 +26,6 @@ public class DashboardPage {
         textDashboard = homeObject.getTextDashboard();
         // faq
         textFaq = homeObject.getTextFaq();
-        modalFaq = homeObject.getModalFaq();
         faqButton = homeObject.getFaq();
         addFaq = homeObject.getAddFaq();
         questionInput = homeObject.getInputQuestion();
@@ -54,23 +53,18 @@ public class DashboardPage {
         basePage.click(addFaq);
     }
 
-//    public void getModalFaq() throws InterruptedException {
-//        basePage.verifyElementVisible(modalFaq);
-//    }
-
-    public void clickQuestion() throws InterruptedException{
-        basePage.click(questionInput);
+    private void pressTabKey() {
+        WebElement activeElement = driver.switchTo().activeElement();
+        activeElement.sendKeys(Keys.TAB);
     }
 
     public void enterQuestion(String question) throws InterruptedException{
+        pressTabKey();
         basePage.inputText(questionInput, question);
     }
 
-    public void clickAnswer() throws InterruptedException{
-        basePage.click(answerInput);
-    }
-
     public void enterAnswer(String answer) throws InterruptedException{
+        basePage.waitForElementVisible(questionInput).sendKeys(Keys.TAB);
         basePage.inputText(answerInput, answer);
     }
 
