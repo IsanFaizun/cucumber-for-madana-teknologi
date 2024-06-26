@@ -2,7 +2,9 @@ package org.example.pages;
 
 import org.example.objects.LoginObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage {
     WebDriver driver;
@@ -25,6 +27,7 @@ public class LoginPage {
         basePage.inputText(emailInput, email);
     }
     public void enterPassword(String password) throws InterruptedException {
+        basePage.waitForElementVisible(emailInput).sendKeys(Keys.TAB);
         basePage.inputText(passwordInput, password);
     }
     public void clickLogin() throws InterruptedException {

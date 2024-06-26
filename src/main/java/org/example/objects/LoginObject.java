@@ -14,7 +14,8 @@ public class LoginObject {
         return By.id("email-input");
     }
     public By getInputPassword() {
-        return By.id("password-input");
+//        return By.id("password-input");
+        return By.xpath("//*[@id=\"password-input\"]");
     }
     public By getLoginButton() {
         return By.id("login-btn");

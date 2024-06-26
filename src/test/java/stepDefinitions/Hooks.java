@@ -3,6 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -12,7 +13,7 @@ public class Hooks {
     @Before
     public void setUp() {
         if (driver == null) {
-            driver = new EdgeDriver();
+            driver = new ChromeDriver();
             driver.manage().window().maximize();
         }
     }
